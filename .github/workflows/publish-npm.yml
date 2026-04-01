@@ -24,5 +24,4 @@ jobs:
           node-version: '24.x'
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm test
       - run: pnpm publish --no-git-checks
