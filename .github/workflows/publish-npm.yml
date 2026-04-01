@@ -43,4 +43,4 @@ jobs:
           pnpm version ${{ inputs.bump }} -m "v%s"
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm publish --no-git-checks
+      - run: pnpm publish --no-git-checks --access public
