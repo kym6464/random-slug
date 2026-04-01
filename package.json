@@ -1,0 +1,25 @@
+{
+  "name": "random-slug",
+  "version": "1.0.0",
+  "description": "Generate random word slugs from the command line",
+  "type": "module",
+  "bin": "./index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "random-word-slugs": "^0.1.7"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "keywords": [
+    "slug",
+    "random",
+    "words",
+    "cli",
+    "generator"
+  ],
+  "license": "MIT"
+}
