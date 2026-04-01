@@ -1,6 +1,6 @@
 {
   "name": "@kym6464/random-slug",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate random word slugs from the command line",
   "type": "module",
   "bin": "./index.js",
