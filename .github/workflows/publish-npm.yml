@@ -15,13 +15,11 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v6
 
@@ -38,9 +36,12 @@ jobs:
           node-version: "24.x"
 
       - name: Bump version
-        id: bump
-        run: |
-          pnpm version ${{ inputs.bump }} -m "v%s"
+        run: pnpm version ${{ inputs.bump }} -m "v%s"
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm publish --no-git-checks --access public
+
+      - name: Publish to NPM
+        run: pnpm publish --no-git-checks --access public
+
+      - name: Push
+        run: git push --follow-tags
