@@ -8,11 +8,11 @@ A CLI tool for generating random word slugs.
 npx random-slug [words] [options]
 ```
 
-By default, generates a single 3-word slug in kebab-case:
+By default, generates a single 1-word slug in kebab-case:
 
 ```
 $ random-slug
-delightful-orange-hamster
+delightful
 ```
 
 ### Options
@@ -23,7 +23,7 @@ Usage: random-slug [options] [words]
 Generate random word slugs
 
 Arguments:
-  words                                number of words per slug (default: "3")
+  words                                number of words per slug (default: "1")
 
 Options:
   -n, --count <n>                      number of slugs to generate (default: "1")

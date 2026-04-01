@@ -42,7 +42,7 @@ function parseCategories(value, valid, label) {
   const invalid = categories.filter((c) => !valid.includes(c));
   if (invalid.length > 0) {
     console.error(
-      `Invalid ${label} categories: ${invalid.join(", ")}\nValid options: ${valid.join(", ")}`
+      `Invalid ${label} categories: ${invalid.join(", ")}\nValid options: ${valid.join(", ")}`,
     );
     process.exit(1);
   }
@@ -52,22 +52,25 @@ function parseCategories(value, valid, label) {
 program
   .name("random-slug")
   .description("Generate random word slugs")
-  .argument("[words]", "number of words per slug", "3")
+  .argument("[words]", "number of words per slug", "1")
   .option("-n, --count <n>", "number of slugs to generate", "1")
   .option(
     "-f, --format <format>",
     "output format: kebab, camel, sentence, lower, title",
-    "kebab"
+    "kebab",
   )
   .option(
     "--adjective-categories <categories>",
-    `comma-separated adjective categories (${ADJECTIVE_CATEGORIES.join(", ")})`
+    `comma-separated adjective categories (${ADJECTIVE_CATEGORIES.join(", ")})`,
   )
   .option(
     "--noun-categories <categories>",
-    `comma-separated noun categories (${NOUN_CATEGORIES.join(", ")})`
+    `comma-separated noun categories (${NOUN_CATEGORIES.join(", ")})`,
   )
-  .option("--count-combinations", "print total unique slug combinations and exit")
+  .option(
+    "--count-combinations",
+    "print total unique slug combinations and exit",
+  )
   .action((words, options) => {
     const numWords = parseInt(words, 10);
     if (isNaN(numWords) || numWords < 1) {
@@ -78,7 +81,7 @@ program
     const validFormats = ["kebab", "camel", "sentence", "lower", "title"];
     if (!validFormats.includes(options.format)) {
       console.error(
-        `Invalid format: ${options.format}\nValid options: ${validFormats.join(", ")}`
+        `Invalid format: ${options.format}\nValid options: ${validFormats.join(", ")}`,
       );
       process.exit(1);
     }
@@ -90,7 +93,7 @@ program
       slugOptions.categories.adjective = parseCategories(
         options.adjectiveCategories,
         ADJECTIVE_CATEGORIES,
-        "adjective"
+        "adjective",
       );
     }
 
@@ -99,7 +102,7 @@ program
       slugOptions.categories.noun = parseCategories(
         options.nounCategories,
         NOUN_CATEGORIES,
-        "noun"
+        "noun",
       );
     }
 
