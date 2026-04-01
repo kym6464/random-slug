@@ -7,6 +7,11 @@
   "scripts": {
     "start": "node index.js"
   },
+  "homepage": "https://github.com/kym6464/random-slug#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kym6464/random-slug.git"
+  },
   "dependencies": {
     "commander": "^13.1.0",
     "random-word-slugs": "^0.1.7"
