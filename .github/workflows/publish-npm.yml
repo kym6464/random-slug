@@ -1,0 +1,28 @@
+# https://docs.npmjs.com/trusted-publishers
+name: Publish to NPM
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          registry-url: 'https://registry.npmjs.org'
+          cache: pnpm
+          node-version: '24.x'
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm publish --no-git-checks
